@@ -21,5 +21,10 @@ class bbsItem(Item):
     title = Field()
     link = Field()
     text=Field()
+    author = Field()
+    content = Field()
+    board = Field()
+    time = Field()
+
 
 

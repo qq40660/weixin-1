@@ -2,7 +2,7 @@
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 
-from tutorial.items import BookItem
+from datacrawler.items import BookItem
 
 class BookSpider(BaseSpider):
     name = "book"
