@@ -66,6 +66,31 @@ LOCK TABLES `entries` WRITE;
 /*!40000 ALTER TABLE `entries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `entries` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `lily`
+--
+
+DROP TABLE IF EXISTS `lily`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lily` (
+  `title` varchar(50) DEFAULT NULL,
+  `link` varchar(100) DEFAULT NULL,
+  `picUrl` varchar(100) DEFAULT NULL,
+  `author` varchar(20) DEFAULT NULL,
+  `content` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lily`
+--
+
+LOCK TABLES `lily` WRITE;
+/*!40000 ALTER TABLE `lily` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lily` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -76,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-30 15:12:46
+-- Dump completed on 2013-03-30 15:30:53
