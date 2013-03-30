@@ -16,3 +16,10 @@ class BookItem(Item):
     publisher = Field()
     index = Field()
     booktype = Field()
+
+class bbsItem(Item):
+    title = Field()
+    link = Field()
+    text=Field()
+
+
