@@ -27,7 +27,10 @@ CREATE TABLE `book_searched_font` (
   `author` varchar(50) DEFAULT NULL,
   `publisher` varchar(50) DEFAULT NULL,
   `book_id` varchar(20) DEFAULT NULL,
-  `type` varchar(15) DEFAULT NULL
+  `type` varchar(15) DEFAULT NULL,
+  `picUrl` varchar(200) DEFAULT NULL,
+  `brief` text,
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -73,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-30 14:53:33
+-- Dump completed on 2013-03-30 15:12:46
