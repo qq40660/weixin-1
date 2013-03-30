@@ -9,3 +9,10 @@ class DatacrawlerItem(Item):
     # define the fields for your item here like:
     # name = Field()
     pass
+
+class BookItem(Item):
+    title = Field()
+    author = Field()
+    publisher = Field()
+    index = Field()
+    booktype = Field()
