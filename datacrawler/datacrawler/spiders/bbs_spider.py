@@ -26,4 +26,4 @@ class bbsSpider(BaseSpider):
            print url
            items.append(item)
        return items
-
+   
