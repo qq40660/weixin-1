@@ -12,14 +12,15 @@ class DatacrawlerItem(Item):
 
 class BookItem(Item):
     title = Field()
-    link = Field()
     author = Field()
     publisher = Field()
     index = Field()
     booktype = Field()
+    link = Field()
     img_url = Field()
     intro = Field()
     borrow_status = Field()
+
 
 class bbsItem(Item):
     title = Field()
@@ -29,3 +30,6 @@ class bbsItem(Item):
     content = Field()
     board = Field()
     time = Field()
+
+
+
