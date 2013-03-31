@@ -7,16 +7,18 @@ from datacrawler.items import BookItem
 
 class BookSpider(BaseSpider):
     name = "book"
-    #allowed_domains = ["lib.nju.edu.cn"]
+    #allowed_domains = ["lib.nju.edu.cn","202.119.47.8:8080"]
     start_urls = [
             "http://202.119.47.8:8080/opac/search_adv_result.php?sType0=any&q0=python&pageSize=100&sort=score&desc=true"
             ]
 
     def parse2(self, response):
         hxs = HtmlXPathSelector(response)
-
+        print 'hello first'
         item = response.meta['item']
         item['img_url'] = hxs.select('//body/div[4]/div/div[2]/div[2]/img/@src').extract()
+        print item['img_url']
+        print 'hello'
         item['intro'] = hxs.select('//body/div[4]/div/div[2]/div/dl[13]/dd/text()').extract()
 
         borrow = []
@@ -44,6 +46,7 @@ class BookSpider(BaseSpider):
             item['index'] = site.select('td[5]/text()').extract()
             item['booktype'] = site.select('td[6]/text()').extract()
             items.append(item)
-        
+
         for item in items:
+
             yield Request(item['link'],meta={'item':item},callback=self.parse2)
