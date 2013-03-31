@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
@@ -26,8 +25,6 @@ class bbsSpider(BaseSpider):
     def parse2(self,response):
         hxs =HtmlXPathSelector(response)
         item = response.meta['item']
-        items = []
-
         content = hxs.select('/html/body/center/table[1]//tr[2]/td/textarea/text()').extract()[0]
         parseTuple = self.parseContent(content)
         item['author'] = parseTuple[0]
