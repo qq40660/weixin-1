@@ -8,17 +8,17 @@ from datacrawler.items import BookItem
 class BookSpider(BaseSpider):
     name = "book"
     #allowed_domains = ["lib.nju.edu.cn","202.119.47.8:8080"]
-    start_urls = [
-            "http://202.119.47.8:8080/opac/search_adv_result.php?sType0=any&q0=python&pageSize=100&sort=score&desc=true"
-            ]
+
+    def __init__(self, name=None):
+        self.start_urls = [
+            "http://202.119.47.8:8080/opac/search_adv_result.php?sType0=any&q0=%s&pageSize=100&sort=score&desc=true"
+             % name]
 
     def parse2(self, response):
         hxs = HtmlXPathSelector(response)
-        print 'hello first'
         item = response.meta['item']
+
         item['img_url'] = hxs.select('//body/div[4]/div/div[2]/div[2]/img/@src').extract()
-        print item['img_url']
-        print 'hello'
         item['intro'] = hxs.select('//body/div[4]/div/div[2]/div/dl[13]/dd/text()').extract()
 
         borrow = []
@@ -26,14 +26,17 @@ class BookSpider(BaseSpider):
         for b in borrow_result:
             status_item = {}
             address = b.select("td[4]/text()").extract()[0]
-            status_item[address] = b.select("td[5]/text()").extract()
+            status = b.select("td[5]/text()").extract()
+            if not status:
+                status = b.select("td[5]/font/text()").extract()
+            status_item[address] = status
             borrow.append(status_item)
         item['borrow_status'] = borrow
         return item
 
     def parse(self, response):
         hxs = HtmlXPathSelector(response)
-        sites = hxs.select('//table/tr[position()>1]')
+        sites = hxs.select('//table/tr[position()>1 and position()<12]')
         items = []
         for site in sites:
             item = BookItem()
@@ -48,5 +51,4 @@ class BookSpider(BaseSpider):
             items.append(item)
 
         for item in items:
-
             yield Request(item['link'],meta={'item':item},callback=self.parse2)
