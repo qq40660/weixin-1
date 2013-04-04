@@ -32,6 +32,7 @@ class bbsItem(Item):
     time = Field()
     commentor =Field()
     comment =Field()
+    comment_time=Field()
 
 
 
