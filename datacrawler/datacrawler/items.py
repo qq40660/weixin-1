@@ -30,6 +30,8 @@ class bbsItem(Item):
     content = Field()
     board = Field()
     time = Field()
+    commentor =Field()
+    comment =Field()
 
 
 
