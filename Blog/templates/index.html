@@ -1,0 +1,14 @@
+$def with (posts)
+<h1>小百合十大</h1>
+
+<ul id="list">
+$for post in posts:
+    <li>
+        <h2><a href="/view/$post.id">$post.title</a></h2>
+        <span>$post.postTime</span>
+        <p>
+            $post.content[0:200]
+            <a href="/view/$post.id">—>查看详细内容</a>
+        <p>
+    </li>
+</ul>
