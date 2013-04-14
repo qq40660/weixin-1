@@ -25,16 +25,16 @@ class bbsSpider(BaseSpider):
     def parse2(self,response):
         hxs =HtmlXPathSelector(response)
         item = response.meta['item']
-       # try:
-       #     content = hxs.select('/html/body/center/table[1]//tr[2]/td/textarea/text()').extract()[0]
-        
-        #    parseTuple = self.parseContent(content)
-        #except:
-        #    return item
-        #item['author'] = parseTuple[0]
-        #item['board'] =parseTuple[1]
-        #item['time'] = parseTuple[2]
-        #item['content'] = parseTuple[3]
+        try:
+            content = hxs.select('/html/body/center/table[1]//tr[2]/td/textarea/text()').extract()[0]
+
+            parseTuple = self.parseContent(content)
+        except:
+            return item
+        item['author'] = parseTuple[0]
+        item['board'] =parseTuple[1]
+        item['time'] = parseTuple[2]
+        item['content'] = parseTuple[3]
         return item
     def parse(self, response):
         hxs = HtmlXPathSelector(response)
@@ -45,11 +45,11 @@ class bbsSpider(BaseSpider):
         for i in range(0, 10):
             item = bbsItem()
             item['link'] = urljoin_rfc('http://bbs.nju.edu.cn/', url[i])
-            
+
             item['title'] =  title[i][:-1]
-            
+
             items.append(item)
-        
+
         #return items
         for item in items:
             request = Request(item['link'],meta={'item':item},dont_filter=True,callback=self.parse2)
@@ -57,7 +57,7 @@ class bbsSpider(BaseSpider):
                 yield request
             else:
                 yield item
-       
+
 
         #yield Request(items[4]['link'],meta={'item':items[9]},dont_filter=True,callback=self.parse2)
 
