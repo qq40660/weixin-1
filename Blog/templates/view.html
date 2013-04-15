@@ -1,14 +1,23 @@
-$def with (post)
+$def with (post_content, post_content_ps, post_comments)
 
 <div id="cont-comm">
     <div id="content">
-        <h1>$post.title</h1>
-        <span id="time">$post.postTime</span>
-        <p>$post.content</p>
+        <h1>$post_content.title</h1>
+        <div id="time" class="time">$post_content.postTime</div>
+        $for per_p in post_content_ps:
+            <p>$:per_p</p>
+        <div><a href="http://$post_content.url">-->小百合原文地址</a></div>
     </div>
 
     <div id="comment">
         <h2>评论</h2>
-        $post.comment
+        <ul>
+            $for comment in post_comments:
+            <li id="comment-list">
+                <div id="comm-author">$:comment.commentAuthor</div>
+                <div id="comm-content">$:comment.comment</div>
+                <div id="comm-time" class="time">$comment.commentTime</div>
+            </li>
+        </ul>
     </div>
 </div>
