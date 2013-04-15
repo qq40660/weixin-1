@@ -8,67 +8,75 @@ $def with (page)
     <style>
         body {
             background-color: #eee;
+        }
+        body, ul, li, h1, h2, div, p {
             margin: 0;
             padding: 0;
+            border: 0;
         }
-
         a {
             text-decoration: none;
         }
-
-        ul {
+        ul,ol {
             list-style: none;
         }
-
-        h1 {
-            text-align: center;
-        }
-
-        #list, #cont-comm {
-            padding: 0;
-            width: 70%;
-            margin: 0 auto;
-        }
-        #list li {
-            padding: 10px;
-            *border: 1px solid #eee;
-            border-radius:20px;
-            box-shadow:2px 2px 5px #ddd, -1px -1px 5px #ddd;
-            margin: 20px 0;
-            background-color: #fff;
-        }
         p {
-            text-align: justify;
-            clear: right;
+            /*text-align: justify;*/
             line-height: 1.5em;
             text-indent: 2em;
         }
 
+        #list, #cont-comm {
+            width: 70%;
+            margin: 0 auto;
+        }
+        .time { color: #999999; }
+        
+        h1#index { 
+            text-align: center;
+            margin-top: 20px;
+        }
+        #list li {
+            padding: 10px;
+            *border: 1px solid #eee;
+            border-radius:15px;
+            box-shadow:2px 2px 5px #ddd, -1px -1px 5px #ddd;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        #list h2 { margin-bottom: 5px; }
+        #list p { margin-top: 3px; }
+        
+
         #cont-comm {
             background-color: #fff;
             box-shadow:2px 2px 5px #ddd, -2px -2px 5px #ddd;
+            padding: 20px 0;
         }
-        #cont-comm h1 { 
-            margin-top: 0;
-            padding-top: 25px;
-        }
-
         #content, #comment {
             padding: 0 30px;
         }
-        #content {
-            margin-top: 20;
-            margin-bottom: 20px;
-        }
-        #comment {
-            line-height: 1.5em;
-            padding-bottom: 20px;
+        #content { margin-bottom: 35px; }
+        #content h1 { margin-bottom: 20px; } 
+        #content p {
+            margin-bottom: 10px;
         }
         #content #time {
-            float: right;
-            line-height: 1.5em;
-            height: 1.5em;
+            text-align: right;
+            margin-bottom: 8px;
         }
+
+        #comment {
+            line-height: 1.5em;
+        }
+        #comment h2 { margin-bottom: 20px; }
+        #comment-list {
+            border: 1px solid #e5e5e5;
+            margin-bottom: -1px;
+            padding: 10px;
+        }
+        #comm-author { font-weight: bold; }
+        #comm-content { margin: 5px 0; }
     </style>
 </head>
 
