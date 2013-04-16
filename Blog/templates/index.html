@@ -7,7 +7,7 @@ $for post_content in post_contents:
         <h2><a href="/view/$post_content.id">$post_content.title</a></h2>
         <div class="time">$post_content.postTime</div>
         <p>
-            $post_content.content[0:200]
+            $:post_content.content[0:200]
             <a href="/view/$post_content.id" style="color: #999;">—>查看详细内容</a>
         <p>
     </li>

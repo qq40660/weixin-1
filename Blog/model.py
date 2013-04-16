@@ -1,6 +1,6 @@
 import web, datetime
 
-db = web.database(host='127.0.0.1', dbn='mysql', db='blog', user='justin', pw='5201314')
+db = web.database(host='127.0.0.1', dbn='mysql', db='blog', user='rickey', pw='5201314')
 
 def get_contents():
     return db.select('bbs', order='id DESC')
