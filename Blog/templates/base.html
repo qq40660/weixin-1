@@ -29,7 +29,7 @@ $def with (page)
             display: block;
         }
 
-        #list, #cont-comm {
+        #list, #cont-comm, #pages {
             width: 70%;
             margin: 0 auto;
         }
@@ -49,6 +49,21 @@ $def with (page)
         }
         #list h2 { margin-bottom: 5px; }
         #list p { margin-top: 3px; }
+        #pages {
+            text-align: right;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-right: 20%;
+        }
+        #pages a {
+            margin-left: 2px;
+            padding: 2px 8px;
+            color: #fff;
+            background: #2c4762;
+        }
+        #pages a:hover {
+            background-color: #ccc;
+        }
         
 
         #cont-comm {
@@ -86,15 +101,11 @@ $def with (page)
             right: 5%;
             bottom: 10%;
             display: block;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
             background: #2c4762;
-        }
-        #backtop div {
-            width: 50px;
-            height: 50px;
-            background: url(../static/images/backtop.gif) no-repeat;
+            background: url(../static/images/backtop.gif) top left no-repeat;
         }
     </style>
 </head>
@@ -121,7 +132,7 @@ $:page
     backtop.style.display = "none";
     addHander(window, "scroll", function(event) {
         var scroll_top = document.body.scrollTop || document.documentElement.scrollTop;
-        if (scroll_top > 10) {
+        if (scroll_top > 50) {
             backtop.style.display = "block";
         } else {
             backtop.style.display = "none";
