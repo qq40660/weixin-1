@@ -1,0 +1,14 @@
+$def with (post_contents)
+<h1 id="index">小百合十大</h1>
+
+<ul id="list">
+$for post_content in post_contents:
+    <li>
+        <h2><a href="/view/$post_content.id">$post_content.title</a></h2>
+        <div class="time">$post_content.postTime</div>
+        <p>
+            $:re.sub(r'<img.*>', '', post_content.content)[0:150]
+            <a href="/view/$post_content.id" style="color: #999;">—>查看详细内容</a>
+        <p>
+    </li>
+</ul>
