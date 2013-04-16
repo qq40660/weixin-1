@@ -6,7 +6,7 @@ $def with (post_content, post_comments)
         <div id="time" class="time">$post_content.postTime</div>
         $for per_content in post_content.content.split('\n\n'):
             <p>$:per_content</p>
-        <div><a href="http://$post_content.url">-->小百合原文地址</a></div>
+        <div><a href="$post_content.url">-->小百合原文地址</a></div>
     </div>
 
     <div id="comment">
