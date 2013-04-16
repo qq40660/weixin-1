@@ -1,5 +1,6 @@
 import web
 import model
+import re
 
 urls = (
     '/', 'Index',
@@ -7,7 +8,8 @@ urls = (
 )
 
 t_globals = {
-    'datestr': web.datestr
+    'datestr': web.datestr,
+    're': re
 }
 render = web.template.render('templates', base='base', globals=t_globals)
 
@@ -19,9 +21,8 @@ class Index:
 class View:
     def GET(self, id):
         post_content = model.get_content(int(id))
-        post_content_ps = post_content.content.split('\n\n')
         post_comments = model.get_comment(int(id))
-        return render.view(post_content, post_content_ps, post_comments)
+        return render.view(post_content, post_comments)
 
 
 app = web.application(urls, globals())
