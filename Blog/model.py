@@ -11,5 +11,11 @@ def get_content(id):
     except IndexError:
         return None
 
+def get_page(per_page, offset):
+    return db.select('bbs', order='id DESC', offset=offset, limit=per_page)
+
+def get_content_count():
+    return db.query("SELECT COUNT(*) AS count FROM bbs")[0]
+
 def get_comment(id):
     return db.select('bbscomment', where='articleId=$id', vars=locals())

@@ -4,12 +4,12 @@ $def with (page)
 <head>
     <meta charset="utf-8">
     <title>Top10 of BBS</title>
-    <link href="styles/main.css" rel="stylesheet">
+    <link href="../static/styles/main.css" rel="stylesheet">
     <style>
         body {
             background-color: #eee;
         }
-        body, ul, li, h1, h2, div, p {
+        body, ul, li, h1, h2, div, p, img {
             margin: 0;
             padding: 0;
             border: 0;
@@ -25,8 +25,11 @@ $def with (page)
             line-height: 1.5em;
             text-indent: 2em;
         }
+        img { 
+            display: block;
+        }
 
-        #list, #cont-comm {
+        #list, #cont-comm, #pages {
             width: 70%;
             margin: 0 auto;
         }
@@ -38,14 +41,29 @@ $def with (page)
         }
         #list li {
             padding: 10px;
-            *border: 1px solid #eee;
+            border: 1px solid #e8e8e8;
             border-radius:15px;
-            box-shadow:2px 2px 5px #ddd, -1px -1px 5px #ddd;
-            margin: 20px 0;
+            box-shadow:2px 2px 3px #ddd, -1px -1px 3px #ddd;
+            margin: 15px 0;
             background-color: #fff;
         }
         #list h2 { margin-bottom: 5px; }
         #list p { margin-top: 3px; }
+        #pages {
+            text-align: right;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-right: 20%;
+        }
+        #pages a {
+            margin-left: 2px;
+            padding: 2px 8px;
+            color: #fff;
+            background: #2c4762;
+        }
+        #pages a:hover {
+            background-color: #ccc;
+        }
         
 
         #cont-comm {
@@ -77,6 +95,18 @@ $def with (page)
         }
         #comm-author { font-weight: bold; }
         #comm-content { margin: 5px 0; }
+
+        #backtop {
+            position: fixed;
+            right: 5%;
+            bottom: 10%;
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background: #2c4762;
+            background: url(../static/images/backtop.gif) top left no-repeat;
+        }
     </style>
 </head>
 
@@ -84,6 +114,31 @@ $def with (page)
 
 $:page
 
-<script src="scripts/main.js"></script>
+
+<a href="javascript:;" onclick="window.scroll(0,0);" id="backtop"><div></div></a>
+
+<script>
+    function addHander(ele, type, hander) {
+        if (ele.addEventListener) {
+            ele.addEventListener(type, hander, false);
+        } else if (ele.attachEvent) {
+            ele.attachEvent("on" + type, hander);
+        } else {
+            ele["on" + type] = hander;
+        }
+    }
+
+    var backtop = document.getElementById("backtop");
+    backtop.style.display = "none";
+    addHander(window, "scroll", function(event) {
+        var scroll_top = document.body.scrollTop || document.documentElement.scrollTop;
+        if (scroll_top > 50) {
+            backtop.style.display = "block";
+        } else {
+            backtop.style.display = "none";
+        }
+    });
+</script>
+<script src="../static/scripts/main.js"></script>
 </body>
 </html>
