@@ -1,4 +1,4 @@
-import web
+﻿import web
 import model
 import re
 
@@ -21,19 +21,18 @@ class Index:
 class Pagination:
     def GET(self, page=1):
         page = int(page)
-        per_page = 10
+        per_page = 10 
         offset = (page - 1) * per_page
 
-        post_contents = model.get_page(per_page, offset)
-        content_count = model.get_content_count()
+        post_contents = model.get_page(per_page, offset) 
+        content_count = model.get_content_count() 
 
-        count_of_pages = content_count.count / per_page
-        if content_count.count % per_page > 0:
-            count_of_pages += 1
+        count_of_pages = content_count.count / per_page + 1
+
         if page > count_of_pages:
             raise web.seeother('/')
         else:
-            return render.index(post_contents=post_contents, count_of_pages=count_of_pages)
+            return render.index(post_contents, count_of_pages, curr_page=page)
 
 class View:
     def GET(self, id):

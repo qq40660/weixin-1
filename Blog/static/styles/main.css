@@ -19,12 +19,14 @@ p {
 }
 img {
     display: block;
+    max-width: 100%;
 }
 
 /*-------------------------------------*/
 #list, #cont-comm, #pages {
     width: 70%;
     margin: 0 auto;
+    word-wrap: break-word;
 }
 .time { color: #999999; }
 
@@ -59,7 +61,9 @@ h1#index {
 #pages a:hover {
     background-color: #ccc;
 }
-
+#pages #current {
+    background-color: #ccc;
+}
 /*-------------------------------------*/
 #cont-comm {
     background-color: #fff;
@@ -67,7 +71,7 @@ h1#index {
     padding: 20px 0;
 }
 #content, #comment {
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 #content { margin-bottom: 35px; }
@@ -104,4 +108,20 @@ h1#index {
     border-radius: 5px;
     background: #2c4762;
     background: url(../images/backtop.gif) top left no-repeat;
+}
+
+/*-------------------------------------*/
+@media (max-width: 480px) {
+    #list, #cont-comm, #pages {
+        width: 96%;
+        margin: 0 auto;
+        font-size: 18px;
+    }
+    #content, #comment {
+        padding: 0 10px;
+    }
+    #backtop {
+        bottom: 5%;
+        right: 0;
+    }
 }
