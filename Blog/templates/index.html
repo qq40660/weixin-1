@@ -1,11 +1,14 @@
 $def with (post_contents, count_of_pages, curr_page)
 
-
 <ul id="list">
 $for post_content in post_contents:
     <li>
         <h2><a href="/view/$post_content.id">$post_content.title</a></h2>
-        <div class="time">$post_content.postTime</div>
+        <div>
+            <span class="author">$post_content.author</span>
+            <span>$post_content.board</span>
+            <span class="time">$post_content.postTime</span>
+        </div>
         <p>
             $:re.sub(r'<img.*>', '', post_content.content)[0:150]
             <a href="/view/$post_content.id" style="color: #999;">—>阅读全文</a>
@@ -26,8 +29,10 @@ $for post_content in post_contents:
     $else:
         $ end = count_of_pages
 
-    $if start != 1:
+    $if start > 2:
         <a href="/">1</a>. .
+    $elif start == 2:
+        <a href="/">1</a>
     $for page in range(start, end + 1):
         $if page == 1:
             <a href="/">1</a>
@@ -35,6 +40,8 @@ $for post_content in post_contents:
             <a href="/$page" id="current">$page</a>
         $else:
             <a href="/$page">$page</a>
-    $if end != count_of_pages:
+    $if end < count_of_pages - 1:
         . .<a href="/$count_of_pages">$count_of_pages</a>
+    $elif end == count_of_pages - 1:
+        <a href="/$count_of_pages">$count_of_pages</a>
 </div>

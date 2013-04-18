@@ -59,9 +59,8 @@ img#face {
     color: #000;
 }
 .header a:hover {
-    color: #000;
+    color: #ccc;
 }
-
 
 /*-------------------------------------*/
 #list, #cont-comm, #pages {
@@ -69,8 +68,6 @@ img#face {
     margin: 0 auto;
     word-wrap: break-word;
 }
-.time { color: #999999; }
-
 #list li {
     padding: 10px;
     border: 1px solid #e8e8e8;
@@ -80,8 +77,10 @@ img#face {
     margin-bottom: 15px;
     background-color: #fff;
 }
-#list h2 { margin-bottom: 5px; }
-#list p { margin-top: 3px; }
+#list h2 { margin-bottom: 8px; }
+.time { color: #999999; }
+.author { font-weight: bold; }
+#list p { margin-top: 5px; }
 
 /*-------------------------------------*/
 #pages {
@@ -114,11 +113,11 @@ img#face {
 }
 
 #content { margin-bottom: 35px; }
-#content h1 { margin-bottom: 20px; }
+#content h2 { margin-bottom: 20px; }
 #content p {
     margin-bottom: 10px;
 }
-#content #time {
+#content #info {
     text-align: right;
     margin-bottom: 8px;
 }

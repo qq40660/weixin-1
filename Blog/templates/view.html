@@ -2,8 +2,12 @@ $def with (post_content, post_comments)
 
 <div id="cont-comm">
     <div id="content">
-        <h1>$post_content.title</h1>
-        <div id="time" class="time">$post_content.postTime</div>
+        <h2>$post_content.title</h2>
+        <div id="info">
+            <span class="author">$post_content.author</span>
+            <span>$post_content.board</span>
+            <span id="time" class="time">$post_content.postTime</span>
+        </div>
         $for per_content in post_content.content.split('\n\n'):
             <p>$:per_content</p>
         <div><a href="$post_content.url">-->小百合原文地址</a></div>
