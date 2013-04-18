@@ -27,9 +27,11 @@ $for post_content in post_contents:
         $ end = count_of_pages
 
     $if start != 1:
-        <a href="/1">1</a>. .
+        <a href="/">1</a>. .
     $for page in range(start, end + 1):
-        $if page == curr_page:
+        $if page == 1:
+            <a href="/">1</a>
+        $elif page == curr_page:
             <a href="/$page" id="current">$page</a>
         $else:
             <a href="/$page">$page</a>

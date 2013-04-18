@@ -21,6 +21,9 @@ img {
     display: block;
     max-width: 100%;
 }
+img#face {
+    display: inline;
+}
 
 /*-------------------------------------*/
 #list, #cont-comm, #pages {

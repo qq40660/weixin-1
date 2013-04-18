@@ -8,7 +8,7 @@ import re
 
 urls = (
     '/', 'Index',
-    '/(\d+)', 'Pagination',
+    '/(\d+)', 'Index',
     '/view/(\d+)', 'View'
 )
 
@@ -19,10 +19,6 @@ t_globals = {
 render = web.template.render(path+'/templates/', base='base', globals=t_globals)
 
 class Index:
-    def GET(self):
-        return web.seeother('/1')
-
-class Pagination:
     def GET(self, page=1):
         page = int(page)
         per_page = 10 
