@@ -1,4 +1,8 @@
-﻿import web
+﻿import os,sys
+path = os.path.dirname(os.path.realpath(__file__))
+
+sys.path.append(path)
+import web
 import model
 import re
 
@@ -12,7 +16,7 @@ t_globals = {
     'datestr': web.datestr,
     're': re
 }
-render = web.template.render('templates', base='base', globals=t_globals)
+render = web.template.render(path+'/templates/', base='base', globals=t_globals)
 
 class Index:
     def GET(self):
@@ -41,7 +45,8 @@ class View:
         return render.view(post_content, post_comments)
 
 
-app = web.application(urls, globals())
+app = web.application(urls,globals(),autoreload=False)
+application = app.wsgifunc()
 
 if __name__ == '__main__':
     app.run()
