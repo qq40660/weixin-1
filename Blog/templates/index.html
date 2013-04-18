@@ -1,4 +1,4 @@
-$def with (post_contents, count_of_pages)
+$def with (post_contents, count_of_pages, curr_page)
 <h1 id="index">小百合十大</h1>
 
 <ul id="list">
@@ -8,14 +8,31 @@ $for post_content in post_contents:
         <div class="time">$post_content.postTime</div>
         <p>
             $:re.sub(r'<img.*>', '', post_content.content)[0:150]
-            <a href="/view/$post_content.id" style="color: #999;">—>查看详细内容</a>
+            <a href="/view/$post_content.id" style="color: #999;">—>阅读全文</a>
         <p>
     </li>
 </ul>
 
 <div id="pages">
-    <a href="">上一页</a>
-    $for page in range(1, count_of_pages + 1):
-        <a href="/$page">$page</a>
-    <a href="">上一页</a>
+    $ half_count_of_item = 2
+
+    $if curr_page - half_count_of_item > 0:
+        $ start = curr_page - half_count_of_item
+    $else:
+        $ start = 1
+
+    $if curr_page + half_count_of_item < count_of_pages:
+        $ end = curr_page + half_count_of_item
+    $else:
+        $ end = count_of_pages
+
+    $if start != 1:
+        <a href="/1">1</a>. .
+    $for page in range(start, end + 1):
+        $if page == curr_page:
+            <a href="/$page" id="current">$page</a>
+        $else:
+            <a href="/$page">$page</a>
+    $if end != count_of_pages:
+        . .<a href="/$count_of_pages">$count_of_pages</a>
 </div>
