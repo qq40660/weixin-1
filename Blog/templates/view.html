@@ -4,12 +4,15 @@ $def with (post_content, post_comments)
     <div id="content">
         <h2>$post_content.title</h2>
         <div id="info">
-            <span class="author">$post_content.author</span>
-            <span>$post_content.board</span>
+            <span>发信人：<strong>$post_content.author</strong></span>
+            <span>信区：$post_content.board</span>
             <span id="time" class="time">$post_content.postTime</span>
         </div>
-        $for per_content in post_content.content.split('\n\n'):
-            <p>$:per_content</p>
+        $for per_content in post_content.content.split('\n'):
+            $if per_content:
+                <p>$:per_content</p>
+            $else:
+                <br />
         <div><a href="$post_content.url">-->小百合原文地址</a></div>
     </div>
 
@@ -20,7 +23,7 @@ $def with (post_content, post_comments)
             <li id="comment-list">
                 <div id="comm-author">$:comment.commentAuthor</div>
                 <div id="comm-content">
-                    $for per_comment in comment.comment.split('\n\n'):
+                    $for per_comment in comment.comment.split('\n'):
                         <p>$:per_comment</P> 
                 </div>
                 <div id="comm-time" class="time">$comment.commentTime</div>

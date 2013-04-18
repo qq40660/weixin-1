@@ -5,8 +5,8 @@ $for post_content in post_contents:
     <li>
         <h2><a href="/view/$post_content.id">$post_content.title</a></h2>
         <div>
-            <span class="author">$post_content.author</span>
-            <span>$post_content.board</span>
+            <span>发信人：<strong>$post_content.author</strong></span>
+            <span>信区：$post_content.board</span>
             <span class="time">$post_content.postTime</span>
         </div>
         <p>

@@ -15,7 +15,6 @@ ul,ol {
 p {
     /*text-align: justify;*/
     line-height: 1.5em;
-    text-indent: 2em;
 }
 img {
     display: block;
@@ -79,8 +78,10 @@ img#face {
 }
 #list h2 { margin-bottom: 8px; }
 .time { color: #999999; }
-.author { font-weight: bold; }
-#list p { margin-top: 5px; }
+#list p {
+    margin-top: 5px;
+    text-indent: 2em;
+}
 
 /*-------------------------------------*/
 #pages {
@@ -114,9 +115,6 @@ img#face {
 
 #content { margin-bottom: 35px; }
 #content h2 { margin-bottom: 20px; }
-#content p {
-    margin-bottom: 10px;
-}
 #content #info {
     text-align: right;
     margin-bottom: 8px;
