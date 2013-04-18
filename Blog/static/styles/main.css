@@ -36,7 +36,7 @@ img#face {
     border-bottom: 1px solid #e5e5e5;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1.5em;
-    color: #333;
+    color: #008000;
 }
 .header .container {
     width: 70%;
@@ -56,7 +56,7 @@ img#face {
     margin-left: 10px;
 }
 .header a:link, .header a:visited {
-    color: #000;
+    color: #008000;
 }
 .header a:hover {
     color: #ccc;
