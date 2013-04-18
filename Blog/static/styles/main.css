@@ -1,5 +1,8 @@
 body {
     background-color: #fff;
+    background-image: url(../images/background.gif);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
 }
 body, ul, li, h1, h2, div, p, img {
     margin: 0;
